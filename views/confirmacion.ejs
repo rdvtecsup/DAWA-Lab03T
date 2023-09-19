@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Confirmación de Matrícula</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      *{
+        font-style: italic;
+        font-weight: lighter;
+      }
+      body {
+        height: 100%;
+        background: linear-gradient(to right, #3a7bd5, #61d6f1);
+      }
+      p{
+        font-size:larger;
+      }
+      .data{
+        padding: 2rem;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+        <div class="data">
+      <h1 class="text-center">Confirmación de Matrícula</h1>
+      <hr />
+      <h3>Curso seleccionado:</h3>
+      <p><strong>Curso:</strong> <%= curso %></p>
+      <h3>Módulos que llevará:</h3>
+      <ul>
+        <% if (Array.isArray(niveles)) { %> <%
+        niveles.forEach(function(nivelSeleccionado) { %>
+        <li><strong>Nivel:</strong> <%= nivelSeleccionado %></li>
+        <% }); %> <% } else { %>
+        <li><strong>Nivel:</strong> <%= niveles %></li>
+        <% } %>
+      </ul>
+      <h3>Medio de pago seleccionado:</h3>
+      <p><strong>Medio de Pago:</strong> <%= medioPago %></p>
+      <h3>Datos de confirmación:</h3>
+      <p>
+        ¡Su matrícula ha sido confirmada! Los siguientes son los detalles de su
+        matrícula:
+      </p>
+
+      <h3>Costo total de los módulos:</h3>
+      <p><strong>Costo Total:</strong> <%= costoTotal %> Soles</p>
+      <ul>
+        <li><strong>Curso:</strong> <%= curso %></li>
+        <li><strong>Medio de Pago:</strong> <%= medioPago %></li>
+        <% niveles.forEach(function(nivelSeleccionado) { %>
+        <li><strong>Nivel:</strong> <%= nivelSeleccionado %></li>
+        <% }); %>
+      </ul>
+    </div>
+    </div>
+  </body>
+</html>
